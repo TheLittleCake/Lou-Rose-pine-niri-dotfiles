@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp /home/lou/.config/fuzzel/fuzzel-dark.ini /home/lou/.config/fuzzel/fuzzel.ini
+cp /home/<user>/.config/fuzzel/fuzzel-dark.ini /home/<user>/.config/fuzzel/fuzzel.ini

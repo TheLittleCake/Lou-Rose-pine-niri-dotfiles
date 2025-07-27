@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp /home/lou/.config/btop/btop-dark.conf /home/lou/.config/btop/btop.conf
+cp /home/<user>/.config/btop/btop-dark.conf /home/<user>/.config/btop/btop.conf

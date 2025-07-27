@@ -5,6 +5,10 @@
 ![fetch](Screenshots/rice-fetch.png)
 ![file](Screenshots/rice-file-and-btop.png)
 
+# Install
+- Copy configs you want from dotconfig to you $HOME/.config/
+- Copy the content of xdg-data-dirs to a repertory present in your $XDG_DATA_DIRS envvar, donc forget to replace "<user>" with you user/home folder !
+
 
 ## Prerequisites
 
