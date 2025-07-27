@@ -1,0 +1,84 @@
+@import url("./rose-pine.css");
+
+#syshud {
+	background: transparent;
+}
+
+#syshud .box_layout {
+	background: @overlay;
+	border-radius: 25px;
+	border: 1px solid @rose;
+	margin: 10px;
+}
+
+#syshud scale {
+	margin: 0px;
+	padding: 0px;
+}
+#syshud label {
+	color: alpha(@text, 0.5);
+}
+
+/* Horizontal layout */
+#syshud scale.horizontal {
+	padding: 0px;
+	min-height: 5px;
+}
+#syshud scale.horizontal trough {
+	border-radius: 3px;
+	background: alpha(currentColor, 0.1);
+	min-height: 5px;
+	padding: 0px;
+}
+#syshud scale.horizontal highlight {
+	border-radius: 3px;
+	min-height: 5px;
+	background: alpha(@text, 0.75);
+	margin: 0px;
+}
+#syshud scale.horizontal slider {
+	margin: 0px;
+	background: transparent;
+	min-height: 5px;
+	box-shadow: none;
+	padding: 0px;
+}
+
+/* Vertical layout */
+#syshud scale.vertical {
+	padding: 0px;
+	min-width: 5px;
+}
+#syshud scale.vertical trough {
+	border-radius: 3px;
+	background: alpha(currentColor, 0.1);
+	min-width: 5px;
+	padding: 0px;
+}
+#syshud scale.vertical highlight {
+	border-radius: 3px;
+	min-width: 5px;
+	background: alpha(@HighlightHigh, 0.75);
+	margin: 0px;
+}
+#syshud scale.vertical slider {
+	margin: 0px;
+	background: transparent;
+	min-width: 5px;
+	box-shadow: none;
+	padding: 0px;
+}
+
+/* Levels */
+#syshud .muted {
+	color: @text;
+}
+#syshud .low {
+	color: @text;
+}
+#syshud .medium {
+	color: @text;
+}
+#syshud .high {
+	color: @text;
+}

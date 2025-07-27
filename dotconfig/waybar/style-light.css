@@ -1,0 +1,109 @@
+@import url("./rose-pine-dawn.css");
+
+* {
+    transition: 150ms;
+}
+
+#waybar {
+    background: @base;
+    color: @text;
+}
+
+.modules-right.horizontal {
+    margin-right: 4px;
+}
+
+#tray > widget {
+    border-radius: 1rem;
+}
+
+#tray > widget > image {
+    padding: 0 0.5rem;
+}
+
+label.module {
+    font-family: JetbrainsMono Nerd Font;
+    font-size: 13px;
+    padding: 0 10px;
+    margin: 2px 0;
+    border-radius: 1rem;
+}
+#clock {
+    color: @text;
+}
+#bluetooth,
+#network,
+#pulseaudio {
+    padding: 0 1rem 0 0.7rem;
+    font-size: 16px;
+}
+
+label.module:hover,
+#tray > widget:hover {
+    background: @highlightMed;
+}
+
+#tags,
+#workspaces {
+    margin: 2px;
+    padding: 0 4px;
+    border-radius: 1rem;
+    background: none;
+}
+
+#tags button,
+#workspaces button {
+    font-size: 0;
+    min-width: 4px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    margin: 9px 4px;
+    border-radius: 1rem;
+}
+
+#tags button,
+#workspaces button.empty {
+    background: @subtle;
+    color: @highlightLow;
+}
+
+#tags button,
+#workspace button.active {
+    color: @iris;
+}
+
+#tags button.focused,
+#tags button.occupied,
+#workspaces button,
+#workspaces button.active {
+    background: @rose;
+}
+
+#tags button.focused,
+#workspaces button.active {
+    min-width: 1.75rem;
+    margin: 8px 0.3rem;
+}
+
+#tags button.urgent,
+#workspaces button.urgent {
+    background: @love;
+}
+
+#battery.charging {
+    color: @pine;
+}
+
+#battery.critical:not(.charging) {
+    color: @love;
+}
+
+#custom-power {
+    color: @foam;
+}
+
+#custom-media,
+#cava {
+    color: @text;
+}

@@ -1,0 +1,206 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "niri/workspaces",
+	"cava",
+	"custom/media#1",
+	"custom/media#2",
+	"custom/media#3",
+    ],
+    "modules-center": [
+    	"idle_inhibitor",
+        "clock",
+	"custom/weather",
+    ],
+    "modules-right": [
+        "tray",
+	"bluetooth",
+	"network",
+	"custom/swap",
+	"custom/audio_idle_inhibitor",
+        "pulseaudio",
+        "battery",
+	"custom/notifications",
+	"custom/power",
+    ],
+    "cava": {
+        // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 60,
+        "autosens": 1,
+        "sensitivity": 2,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "hide_on_silence": false,
+        // "format_silent": "quiet",
+        "method": "pulse",
+        "source": "auto",
+        "stereo": false,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": true,
+        "waves": true,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+            "on-click-right": "mode"
+        }
+    },
+    "custom/media#2": {
+        "format": " {} {icon} ",
+        "format-icons": {
+            "spotify": "",
+            "default": "🎵"
+        },
+        "exec": "~/.config/waybar/playerinfo.sh",
+        "escape": true,
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "playerctl play-pause",
+    },
+    "custom/media#1": {
+        "format": "",
+        "on-click": "playerctl previous"
+    },
+    "custom/media#3": {
+      "format": "",
+      "on-click": "playerctl next"
+    },
+    "river/tags": {
+        "num-tags": 5,
+    },
+    "niri/workspaces": {
+        "all-outputs": true,
+	"format" : "●",
+    },
+    "custom/player": {
+        "exec": "sb-player",
+        "max-length": 30,
+        "interval": 1,
+        "on-click": "playerctl play-pause",
+    },
+    "custom/dollar": {
+        "exec": "sb-dollar",
+        "interval": 21600,
+    },
+    "custom/swap": {
+    	"on-click": "darkman toggle",
+    	"tooltip": "Swap dark/light mode",
+    	"format": " "
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "format-muted": "󰝟",
+        //"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click": "pavucontrol",
+        "tooltip-format": "{volume}% ({desc})",
+        "scroll-step": 5,
+    },
+    "clock": {
+      "interval": 60,
+      "format": "{:%a %d  %R}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+          "mode-mon-col": 3,
+          "format": {
+              "months": "<b>{}</b>",
+              "days": "{}",
+              "weeks": "<b>{:%W}</b>",
+              "weekdays": "<b>{}</b>",
+              "today": "<b><u>{}</u></b>",
+          },
+      },
+      "actions": {
+          "on-click": "mode",
+          "on-scroll-up": "shift_up",
+          "on-scroll-down": "shift_down",
+      },
+    },
+    "network": {
+	"family": "ipv4",
+	"format": "⚠",
+	"format-wifi": " ",
+    	"format-ethernet": " ",
+    	"format-disconnected": "⚠",
+    	"on-click": "networkmanager_dmenu",
+    	"tooltip": true,
+    	"tooltip-format": " {essid} "
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 2,
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        //"format": "{icon}  {capacity: >3}%",
+	"format": "{capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+	"on-click": "mate-power-statistics",
+        //"format-icons": ["", "", "", "", ""],
+	"interval": 5
+    },
+    "custom/power": {
+        "format": "⏻",
+        //"on-click": "~/.config/sway/scripts/rofi_",
+        "on-click": "~/.config/niri/scripts/power-menu.sh",
+        "tooltip": false
+    },
+    "custom/notifications": {
+        "format": "{}",
+        "on-click": "swaync-client -t -sw",
+        "exec": "~/.config/waybar/scripts/waybar-notification.sh",
+        "tooltip": false,
+        "interval": 1
+    },
+    "custom/audio_idle_inhibitor": {
+        "format": "{icon}",
+	"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+	"exec-if": "which sway-audio-idle-inhibit",
+	"return-type": "json",
+	"format-icons": {
+	    "output": "",
+	    "input": "",
+	    "output-input": "  ",
+	    "none": ""
+	}
+    },
+    "bluetooth": {
+        "on-click": "bzmenu -l custom --launcher-command \"fuzzel --config=$HOME/.config/fuzzel/fuzzel-settings.ini -d -p '{prompt}'\"",
+	"format": "",
+	"format-disabled": "󰂲",
+	"format-off": "󰂲",
+	"format-connected": "󰂰 {device_alias}",
+	"format-connected-battery": "󰂰 {device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+            "activated": "󰒳 ",
+            "deactivated": "󰒲 "
+        }
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "wttrbar --location selestat --date-format %d-%m-%Y --lang fr",
+        "return-type": "json"
+    },
+}
+
+// vi:ft=hjson
