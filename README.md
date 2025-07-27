@@ -1,9 +1,9 @@
 # Lou's rose-pine rice
 
 ## Screenshots
-![feishin][/Screenshots/rice-music.png]
-![fetch][Screenshots/rice-fetch.png]
-![file][Screenshots/rice-file-and-btop.png]
+![feishin](Screenshots/rice-music.png)
+![fetch](Screenshots/rice-fetch.png)
+![file](Screenshots/rice-file-and-btop.png)
 
 
 ## Prerequisites
